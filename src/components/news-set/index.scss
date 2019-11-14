@@ -1,0 +1,39 @@
+
+.news-set{
+    padding: 0 11px;
+    .accordion{
+        .accordion-child{
+            margin-top: 20px;
+            box-shadow: 0px 0px 10px 0px #d4d2d2;
+            .am-accordion-header{
+                height: 55px;
+                line-height: 55px;
+                font-size: 22px;
+                background-color: #f6f6f6;
+
+                &:after{
+                    display: none !important;
+                }
+            }
+        }
+    }
+    .list{
+        .am-list-item{
+            padding-top: 5px;
+            padding-bottom: 5px;
+            .am-list-line{
+                .am-list-content{
+                    font-size: 22px;
+                }
+                &:after{
+                    display: none !important;
+                }
+            }
+        }
+    }
+    .news-set-icon{
+        img{
+            vertical-align: middle;
+        }
+    }
+}
