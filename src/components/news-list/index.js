@@ -1,33 +1,65 @@
 import React from 'react';
-import { Tabs, WhiteSpace } from 'antd-mobile';
+import { Tabs } from 'antd-mobile';
+import './index.scss'
 
 export default class NewsList extends React.Component {
-    renderContent = tab =>
-    (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-      <p>Content of {tab.title}</p>
-    </div>);
+    renderContent = tab => {
+        return <ul className="item">
+            {
+                tab.list.map((t, k) => {
+                    return <li key={k} >
+                        <h5>{t.title}</h5>
+                        <span>{t.tip}</span>
+                    </li>
+                })
+            }
+        </ul>
+    }
 
-  render() {
-    const tabs = [
-      { title: '1st Tab' },
-      { title: '2nd Tab' },
-      { title: '3rd Tab' },
-      { title: '4th Tab' },
-      { title: '5th Tab' },
-      { title: '6th Tab' },
-      { title: '7th Tab' },
-      { title: '8th Tab' },
-      { title: '9th Tab' },
-    ];
+    render() {
+        const tabs = [
+            {
+                title: '直接投资',
+                list: [{
+                    title: '中国人名银行',
+                    tip: '银发'
+                },{
+                    title: '中国人名银行',
+                    tip: '银发'
+                }]
+            }, {
+                title: '金融市场',
+                list: [{
+                    title: '中国人名银行2',
+                    tip: '银发'
+                }]
+            }, {
+                title: '跨境融资',
+                list: [{
+                    title: '中国人名银行3',
+                    tip: '银发'
+                }]
+            }, {
+                title: '跨境融资2',
+                list: [{
+                    title: '中国人名银行4',
+                    tip: '银发'
+                }]
+            }, {
+                title: '跨境融资3',
+                list: [{
+                    title: '中国人名银行5',
+                    tip: '银发'
+                }]
+            },
+        ];
 
-    return (
-      <div>
-        <WhiteSpace />
-        <Tabs tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
-          {this.renderContent}
-        </Tabs>
-        <WhiteSpace />
-      </div>
-    );
-  }
+        return (
+            <div className="news-list">
+                <Tabs tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
+                    {this.renderContent}
+                </Tabs>
+            </div>
+        );
+    }
 }
