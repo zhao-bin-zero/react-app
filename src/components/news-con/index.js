@@ -35,8 +35,8 @@ class NewsCon extends React.Component {
             </div>
         ) : <Result
                 // img={<img src={src} className="spe am-icon am-icon-md" alt="" />}
-                title="等待处理"
-                message="已提交申请，等待银行处理"
+                title="无内容"
+                message="无内容"
             />
     }
 }
