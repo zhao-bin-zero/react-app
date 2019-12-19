@@ -1,4 +1,3 @@
-import { DOWNLOADAPPURL, AGREEMENTRELATED, pinyin } from './constant'
 
 // 设置cookies
 /**
@@ -48,6 +47,12 @@ export const delCookie = ({ name, domain, path, secure }) => {
 }
 
 
+// 截取域名
+const getDomain = () => {
+    let domain = '.' + location.hostname.split('.').slice(-2).join('.');  // eslint-disable-line no-restricted-globals
+    // console.log(url.match(/\.\w+\.com/)[0]);
+    return domain;
+}
 
 // 上传图片base64
 // 返回64位imgCode

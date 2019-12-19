@@ -1,26 +1,43 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Result } from 'antd-mobile';
 import './index.scss'
+import http from '../../http'
 
 
 class NewsCon extends React.Component {
+    state = {
+        details: {}
+    }
+    getArticle() {
+        http.getArticle({
+            id: this.props.match.params.id,
+            cid: this.props.match.params.cid
+        }).then((data) => {
+            this.setState({
+                details: data.data.article
+            })
+        })
+    }
+    componentDidMount() {
+        this.getArticle()
+    }
     render() {
-        const newCon = {
-            title: '中国人民银行',
-            tip: '银发',
-            content: '中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行中国人民银行'
-        }
-        return (
+        return this.details ? (
             <div className="news-con">
                 <div className="header">
-                    <h5>{newCon.title}</h5>
-                    <span>{newCon.tip}</span>
+                    <h5>{this.details.title}</h5>
+                    <span>{this.details.introduction}</span>
                 </div>
                 <div className="con">
-                    {newCon.content}
+                    {this.details.content}
                 </div>
             </div>
-        );
+        ) : <Result
+                // img={<img src={src} className="spe am-icon am-icon-md" alt="" />}
+                title="等待处理"
+                message="已提交申请，等待银行处理"
+            />
     }
 }
 export default connect(

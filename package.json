@@ -21,8 +21,14 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "no-undef": 0,
+      "no-restricted-globals": 0,
+      "no-unused-vars": 0
+    }
   },
+  "proxy": "http://122.51.107.159",
   "browserslist": {
     "production": [
       ">0.2%",

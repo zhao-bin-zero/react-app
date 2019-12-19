@@ -4,7 +4,7 @@ import UpdateContent from '../components/update-content';
 import NewsSet from '../components/news-set';
 import NewsList from '../components/news-list';
 import NewsCon from '../components/news-con';
-import NotFound from '../components/not-found';
+// import NotFound from '../components/not-found';
 
 
 // requiresAuth需要登陆后才能跳转的页面
@@ -20,18 +20,18 @@ const routes = [
         requiresAuth: false,
     },
     {
-        path: '/news-list',
+        path: '/news-list/:id',
         component: NewsList,
         requiresAuth: false,
     },
     {
-        path: '/news-con',
+        path: '/news-con/:id/:cid',
         component: NewsCon,
         requiresAuth: false,
     },
     {
         path: '*',
-        component: NotFound,
+        component: NewsSet, // NotFound
         requiresAuth: false,
     }
 ]

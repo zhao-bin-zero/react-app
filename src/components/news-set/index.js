@@ -1,36 +1,46 @@
 import React from 'react';
 import './index.scss'
 import { Accordion, List } from 'antd-mobile';
+import http from '../../http'
 
 export default class NewsSet extends React.Component {
-    onChange = (key) => {
-        console.log(key);
+    state = {
+        list: []
     }
-
+    linklist(item) {
+        this.props.history.push({ pathname: `/news-list/${item.id}` });
+    }
+    getShowlistSet() {
+        http.getShowlistSet().then((data) => {
+            this.setState({
+                list: data.data
+            })
+        })
+    }
+    componentDidMount() {
+        this.getShowlistSet()
+    }
     render() {
-        const list = [{
-            title: '跨境贸易人民币结算',
-            children: [{
-                title: '结算1'
-            }]
-        }]
         const headerUI = (item, num) => {
             return (
-                <div className="news-set-icon"><img alt="" src={num === 1 ? require('../../assets/images/xin.png') : require('../../assets/images/open.png')} /> {item.title}</div>
+                <div className="news-set-icon">
+                    <img alt="" src={num === 1 ? require('../../assets/images/xin.png') : require('../../assets/images/open.png')} />
+                    {item.name}
+                </div>
             )
 
         }
         return (
             <div className="news-set">
-                <Accordion defaultActiveKey="" className="accordion" onChange={this.onChange}>
+                <Accordion defaultActiveKey="" className="accordion">
                     {
-                        list.map((item) => {
-                            return <Accordion.Panel header={headerUI(item, 1)} key='item' className="accordion-child">
+                        this.state.list.map((item) => {
+                            return <Accordion.Panel header={headerUI(item, 1)} key={item.id} className="accordion-child">
                                 {
                                     item.children ?
                                         <List className="list">
                                             {
-                                                item.children.map((item2) => <List.Item key='item2' onClick={this.onChange}>{headerUI(item2, 2)}</List.Item>)
+                                                item.children.map((item2) => <List.Item key={item2.id} onClick={this.linklist.bind(this, item2)}>{headerUI(item2, 2)}</List.Item>)
                                             }
                                         </List> : ''
                                 }
