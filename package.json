@@ -29,6 +29,7 @@
     }
   },
   "proxy": "http://122.51.107.159",
+  "homepage": ".",
   "browserslist": {
     "production": [
       ">0.2%",
