@@ -23,21 +23,20 @@ class NewsCon extends React.Component {
         this.getArticle()
     }
     render() {
-        return this.details ? (
+        return this.state.details.id ? (
             <div className="news-con">
                 <div className="header">
-                    <h5>{this.details.title}</h5>
-                    <span>{this.details.introduction}</span>
+                    <h5>{this.state.details.title}</h5>
+                    <span>{this.state.details.introduction}</span>
                 </div>
-                <div className="con">
-                    {this.details.content}
+                <div className="con" dangerouslySetInnerHTML={{__html: this.state.details.content}}>
                 </div>
             </div>
-        ) : <Result
+        ) : (<Result
                 // img={<img src={src} className="spe am-icon am-icon-md" alt="" />}
                 title="无内容"
                 message="无内容"
-            />
+            />)
     }
 }
 export default connect(
