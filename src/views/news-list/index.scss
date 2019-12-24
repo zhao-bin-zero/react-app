@@ -1,0 +1,16 @@
+.news-list{
+    .am-tabs-tab-bar-wrap{
+        .am-tabs-default-bar{
+            background-color: #f0f0f0 !important;
+        }
+        .am-tabs-default-bar-top{
+            .am-tabs-default-bar-tab{
+                height: 55px;
+                line-height: 55px;
+            }
+        }
+    }
+    .news-list-li{
+        padding: 0 15px;
+    }
+}

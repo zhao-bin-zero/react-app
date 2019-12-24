@@ -1,0 +1,21 @@
+.zero-search{
+    padding: 10px;
+    .am-search{
+        height: 60px;
+        .am-search-input{
+            height: 44px;
+            .am-search-synthetic-ph{
+                height: 44px;
+                line-height: 44px;
+                
+            }
+            input[type="search"]{
+                height: 44px;
+
+            }
+            .am-search-clear{
+                top: 7px;
+            }
+        }
+    }
+}

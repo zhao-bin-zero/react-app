@@ -1,0 +1,22 @@
+.zero-excess {
+  height: 100vh;
+  position: relative;
+  background-image: url("../../assets/images/excess.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  .zero-excess-jump {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    vertical-align: middle;
+    > span {
+        margin-left: 3px;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 2px 3px;
+      color: #fff;
+      font-size: 12px;
+      border-radius: 3px;
+    }
+  }
+}

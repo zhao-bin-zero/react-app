@@ -1,10 +1,10 @@
 import React from 'react'
 import { Route, Redirect, Switch } from 'react-router-dom'
-import UpdateContent from '../components/update-content';
-import NewsSet from '../components/news-set';
-import NewsList from '../components/news-list';
-import NewsCon from '../components/news-con';
-// import NotFound from '../components/not-found';
+import UpdateContent from '../views/update-content';
+import NewsSet from '../views/news-set';
+import NewsList from '../views/news-list';
+import NewsCon from '../views/news-con';
+// import NotFound from '../views/not-found';
 
 
 // requiresAuth需要登陆后才能跳转的页面

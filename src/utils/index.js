@@ -231,3 +231,17 @@ export const copyText = (text) => {
     document.body.removeChild(textArea);
 }
 
+// 防抖
+export const debounce = (() => {
+    let timerId;
+    return (fn, delay = 500) => {
+        //期间间隔执行 节流
+        return (...rest) => { //箭头函数是没有arguments的 所以用...rest 来代替
+            let args = rest;
+            if (timerId) clearTimeout(timerId);//要用this.timerId 而不能直接定义var timerId=null;
+            timerId = setTimeout(() => {
+                fn.apply(this, args)
+            }, delay)
+        }
+    }
+})()

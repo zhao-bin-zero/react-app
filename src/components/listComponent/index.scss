@@ -1,0 +1,23 @@
+.zero-list {
+//   padding: 0 15px;
+  .zero-list-item {
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    > h5 {
+      font-size: 17px;
+      line-height: 22px;
+      font-weight: 400;
+    }
+    > span {
+      font-size: 13px;
+      line-height: 16px;
+      color: #5e5e5e;
+      margin-top: 5px;
+      display: inline-block;
+    }
+  }
+  .am-list-body{
+    background-color: transparent;
+  }
+}

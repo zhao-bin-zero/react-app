@@ -33,9 +33,8 @@ class NewsCon extends React.Component {
                 </div>
             </div>
         ) : (<Result
-                // img={<img src={src} className="spe am-icon am-icon-md" alt="" />}
+                img={<img src={require('../../assets/images/no-content.png')} className="" alt="" />}
                 title="无内容"
-                message="无内容"
             />)
     }
 }
