@@ -9,6 +9,7 @@ import ListComponent from '../../components/listComponent'
 export default class NewsSet extends React.Component {
     state = {
         height: document.documentElement.clientHeight,
+        opening: [],
         list: [],
         value: '',
         newsList: {}
@@ -41,7 +42,7 @@ export default class NewsSet extends React.Component {
     componentDidUpdate() {
         document.body.style.overflow = 'hidden';
     }
-    componentWillUnmount(){
+    componentWillUnmount() {
         document.body.style.overflow = '';
     }
     onChange(value) {
@@ -58,10 +59,15 @@ export default class NewsSet extends React.Component {
             height: hei,
         });
     }
+    oneTab(item){
+        if(!(item.children && item.children.length)){
+            this.linklist(item);
+        }
+    }
     render() {
         const headerUI = (item, num) => {
             return (
-                <div className="news-set-icon">
+                <div className="news-set-icon" onClick={this.oneTab.bind(this, item)}>
                     <img alt="" src={num === 1 ? require('../../assets/images/xin.png') : require('../../assets/images/open.png')} />
                     {item.name}
                 </div>
@@ -84,7 +90,7 @@ export default class NewsSet extends React.Component {
                                     this.state.list.map((item) => {
                                         return <Accordion.Panel header={headerUI(item, 1)} key={item.id} className="accordion-child">
                                             {
-                                                item.children ?
+                                                item.children.length ?
                                                     <List className="list">
                                                         {
                                                             item.children.map((item2) => <List.Item key={item2.id} onClick={this.linklist.bind(this, item2)}>{headerUI(item2, 2)}</List.Item>)

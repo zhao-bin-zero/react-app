@@ -28,7 +28,7 @@ export default class NewsList extends React.Component {
     // this.props.match.params.id
     getShowlist(id) {
         http.getShowlist({ cid: id }).then((data) => {
-            let children = data.data.children;
+            let children = data.data.children.length ? data.data.children : [data.data.current];
             // data.data.article_list.data = [{
             //     title: '中国人名银行' + id,
             //     tip: '银发',
@@ -92,7 +92,6 @@ export default class NewsList extends React.Component {
                     return item
                 })
 
-
                 this.setState({
                     tabs: list
                 })
@@ -118,7 +117,7 @@ export default class NewsList extends React.Component {
     componentDidUpdate() {
         document.body.style.overflow = 'hidden';
     }
-    componentWillUnmount(){
+    componentWillUnmount() {
         document.body.style.overflow = '';
     }
     render() {
