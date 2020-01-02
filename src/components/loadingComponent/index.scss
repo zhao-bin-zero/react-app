@@ -3,7 +3,8 @@
   position: relative;
   background-image: url("../../assets/images/excess.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
+  background-position: 0 0;
   overflow: hidden;
   .zero-excess-jump {
     position: absolute;
@@ -11,7 +12,7 @@
     right: 20px;
     vertical-align: middle;
     > span {
-        margin-left: 3px;
+      margin-left: 3px;
       background-color: rgba(0, 0, 0, 0.2);
       padding: 2px 3px;
       color: #fff;
