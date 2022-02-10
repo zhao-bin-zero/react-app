@@ -45,7 +45,7 @@
   "devDependencies": {
     "babel-plugin-import": "^1.12.2",
     "customize-cra": "^0.8.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "react-app-rewired": "^2.1.5",
     "sass-loader": "^8.0.0"
   }
